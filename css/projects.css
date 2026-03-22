@@ -1,0 +1,125 @@
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    font-family: 'Fira Mono', 'Consolas', monospace;
+    background: #000;
+    color: #fff;
+    overflow: hidden;
+}
+
+.projects-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        min-height: 100vh;
+        background: #000;
+        width: 100vw;
+        box-sizing: border-box;
+        padding-top: 2.5rem;
+        padding-bottom: 6rem; /* for nav bar space */
+}
+
+.projects-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        gap: 24px;
+        margin-bottom: 32px;
+        width: 960px;
+        max-width: 100vw;
+        justify-content: center;
+        align-items: center;
+}
+
+@media (max-width: 1000px) {
+    .projects-grid {
+        width: 100vw;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(3, 1fr);
+    }
+}
+@media (max-width: 700px) {
+    .projects-grid {
+        width: 100vw;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(6, 1fr);
+    }
+}
+
+
+.projects-title {
+    font-size: 2.2rem;
+    letter-spacing: 2px;
+    margin-bottom: 24px;
+    text-align: center;
+    font-family: 'Fira Mono', monospace;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 24px;
+    margin-bottom: 32px;
+    width: 480px;
+    max-width: 90vw;
+}
+
+.project-card {
+    background: #ddd;
+    border-radius: 12px;
+    height: 200px;
+    width: 300px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: box-shadow 0.2s;
+}
+
+.project-card:hover {
+    box-shadow: 0 4px 16px rgba(33,150,243,0.15);
+}
+
+.projects-nav {
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    padding: 1.2rem 1.5rem 1.5rem 1.5rem;
+    z-index: 3;
+    box-sizing: border-box;
+    background: #000;
+}
+
+.projects-nav-link {
+    color: #fff;
+    font-family: 'Fira Mono', 'Consolas', monospace;
+    font-size: 1.2rem;
+    text-decoration: none;
+    opacity: 0.9;
+    transition: opacity 0.2s;
+}
+.projects-nav span:hover {
+    opacity: 1;
+    color: #a259f7;
+}
+.projects-nav-link.home {
+    font-size: 2rem;
+    background: none;
+    border: none;
+    margin: 0;
+    flex: 1 1 auto;
+    text-align: center;
+}
+
+.nav-icon {
+    transition: color 0.2s, transform 0.2s;
+    cursor: pointer;
+}
+.nav-icon:hover {
+    color: #a259f7;
+    transform: scale(1.2);
+}
