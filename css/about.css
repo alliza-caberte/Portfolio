@@ -1,3 +1,7 @@
+/* Remove bold font from About title */
+.about-left h1 {
+    font-weight: normal;
+}
 body {
     margin: 0;
     padding: 0;

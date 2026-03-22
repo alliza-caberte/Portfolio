@@ -55,6 +55,7 @@ body {
     margin-bottom: 24px;
     text-align: center;
     font-family: 'Fira Mono', monospace;
+    font-weight: normal;
 }
 
 .projects-grid {

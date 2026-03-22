@@ -1,3 +1,7 @@
+.typing-caret {
+    border-right: 2px solid #fff;
+    animation: blink-caret 0.8s steps(1) infinite;
+}
 body {
     margin: 0;
     padding: 0;
@@ -6,6 +10,39 @@ body {
     background: #000;
     color: #fff;
     overflow: hidden;
+}
+
+#loading-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    transition: opacity 0.6s;
+}
+
+#loading-overlay.hide {
+    opacity: 0;
+    pointer-events: none;
+}
+
+#loading-text {
+    color: #fff;
+    font-size: 2rem;
+    font-family: 'Fira Mono', 'Consolas', monospace;
+    letter-spacing: 2px;
+    white-space: pre;
+    border-right: 2px solid #fff;
+    animation: blink-caret 0.8s steps(1) infinite;
+}
+
+@keyframes blink-caret {
+    0%, 100% { border-color: #fff; }
+    50% { border-color: transparent; }
 }
 
 #background-animation {
@@ -52,7 +89,16 @@ body {
     gap: 2rem;
     flex-wrap: wrap;
     justify-content: center;
+    opacity: 1;
+    pointer-events: auto;
+    transition: opacity 0.6s cubic-bezier(0.4,0,0.2,1);
 }
+
+.links.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
 
 .link {
     color: #fff;
