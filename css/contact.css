@@ -49,6 +49,7 @@ h1 {
     font-size: 2.2rem;
     transition: color 0.2s;
     text-align: center;
+    text-decoration: none;
 }
 .icon-link:hover {
     opacity: 1;
