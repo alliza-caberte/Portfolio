@@ -8,30 +8,37 @@
     // Remove any previous canvas
     while (container.firstChild) container.removeChild(container.firstChild);
 
+
     // Create and style canvas
     const canvas = document.createElement('canvas');
     canvas.style.position = 'absolute';
     canvas.style.top = '0';
-    canvas.style.right = '0';
+    canvas.style.left = '0';
+    canvas.style.width = '100vw';
+    canvas.style.height = '100vh';
     canvas.style.pointerEvents = 'none';
     canvas.style.zIndex = '1';
     container.appendChild(canvas);
 
     function resizeCanvas() {
-        canvas.width = container.offsetWidth;
-        canvas.height = container.offsetHeight;
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
     }
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
 
-    // Animation parameters
-    const baseRadius = Math.min(canvas.width, canvas.height) * 0.45;
-    // Move the center further to the right and up (top-right corner, mostly offscreen)
-    const centerX = canvas.width + baseRadius * 0.15;
-    const centerY = -baseRadius * 0.10;
-    const points = 180;
+    function getAnimationParams() {
+        const baseRadius = Math.min(canvas.width, canvas.height) * 0.45;
+        // Move sphere further into the top right (mostly offscreen)
+        const centerX = canvas.width + baseRadius * 0.15; // push further right
+        const centerY = -baseRadius * 0.10; // push further up
+        const points = 180;
+        return { baseRadius, centerX, centerY, points };
+    }
+
 
     function drawNeonCircle(ctx, time) {
+        const { baseRadius, centerX, centerY, points } = getAnimationParams();
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.save();
         ctx.globalCompositeOperation = 'lighter';

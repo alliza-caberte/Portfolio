@@ -1,23 +1,25 @@
-
 (function () {
-    const container = document.getElementById('skills-sphere-bg');
-    if (!container) return;
-
-    // Remove any previous canvas
-    while (container.firstChild) container.removeChild(container.firstChild);
-
-    // Create and style canvas
+    // Create and style a full-screen fixed canvas as background
     const canvas = document.createElement('canvas');
-    canvas.style.position = 'absolute';
+    canvas.style.position = 'fixed';
     canvas.style.top = '0';
     canvas.style.left = '0';
+    canvas.style.width = '100vw';
+    canvas.style.height = '100vh';
     canvas.style.pointerEvents = 'none';
-    canvas.style.zIndex = '1';
-    container.appendChild(canvas);
+    canvas.style.zIndex = '0';
+    canvas.style.display = 'block';
+    // Append canvas to #sphere-bg if it exists, else fallback to body
+    const sphereBg = document.getElementById('sphere-bg');
+    if (sphereBg) {
+        sphereBg.appendChild(canvas);
+    } else {
+        document.body.prepend(canvas);
+    }
 
     function resizeCanvas() {
-        canvas.width = container.offsetWidth;
-        canvas.height = container.offsetHeight;
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
     }
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
@@ -29,10 +31,8 @@
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.save();
         ctx.globalCompositeOperation = 'lighter';
-        // Draw wavy neon edge (mirrored to left)
-        const baseRadius = Math.min(canvas.width, canvas.height) * 0.45;
-        // Center is off the left and up (mirrored from about)
-        const centerX = -baseRadius * 0.15;
+        const baseRadius = Math.min(canvas.width, canvas.height) * 0.38;
+        const centerX = -baseRadius * 0.15; 
         const centerY = -baseRadius * 0.10;
         ctx.beginPath();
         for (let i = 0; i <= points; i++) {

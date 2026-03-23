@@ -38,7 +38,7 @@ document.head.appendChild(style);
 
 document.addEventListener("DOMContentLoaded", () => {
     // About page
-    const aboutTitle = document.querySelector(".about-left h1");
+    const aboutTitle = document.querySelector(".about-top h1");
     if (aboutTitle && aboutTitle.textContent.trim() === "About") {
         aboutTitle.textContent = "";
         typeTitle(aboutTitle, "About");

@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     setTimeout(() => {
                         typeText(name, "Alliza Caberte", 60, () => {
                             setTimeout(() => {
-                                typeText(role, "Fullstack Developer", 60, () => {
+                                typeText(role, "Frontend Developer", 60, () => {
                                     if (links) {
                                         links.classList.remove('hidden');
                                     }

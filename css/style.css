@@ -1,3 +1,14 @@
+.fairy-dust {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    opacity: 1;
+    box-shadow: 0 0 8px 2px #fff7, 0 0 16px 4px #fff3;
+    transition: opacity 0.6s, transform 0.6s;
+    will-change: opacity, transform;
+}
 .typing-caret {
     border-right: 2px solid #fff;
     animation: blink-caret 0.8s steps(1) infinite;

@@ -8,6 +8,18 @@ body {
     overflow: hidden;
 }
 
+.fairy-dust {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    opacity: 1;
+    box-shadow: 0 0 8px 2px #fff7, 0 0 16px 4px #fff3;
+    transition: opacity 0.6s, transform 0.6s;
+    will-change: opacity, transform;
+}
+
 .projects-container {
         display: flex;
         flex-direction: column;
@@ -33,6 +45,80 @@ body {
         align-items: center;
 }
 
+/* Enhanced project-card styles inside projects-grid */
+.projects-grid .project-card {
+    background: linear-gradient(135deg, #232526 0%, #414345 100%);
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(162,89,247,0.10), 0 1.5px 8px rgba(0,0,0,0.10);
+    padding: 1rem 0.8rem 0.8rem 0.8rem;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.18s, box-shadow 0.18s;
+    border: 1.5px solid #a259f7;
+    width: 220px;
+    min-height: 140px;
+    max-width: 90vw;
+}
+
+.projects-grid .project-card:hover {
+    transform: translateY(-6px) scale(1.025);
+    box-shadow: 0 8px 32px rgba(162,89,247,0.18), 0 2px 12px rgba(0,0,0,0.13);
+    border-color: #fff;
+}
+
+.projects-grid .project-card h2 {
+    font-size: 1.1rem;
+    margin: 0 0 0.3rem 0;
+    color: #a259f7;
+    font-weight: 600;
+}
+
+.projects-grid .project-card h3 {
+    font-size: 0.92rem;
+    font-style: italic;
+    margin: 0 0 0.7rem 0;
+    color: #fff;
+    font-weight: 400;
+    opacity: 0.8;
+}
+
+.projects-grid .project-card p {
+    font-size: 0.92rem;
+    margin: 0 0 1.1rem 0;
+    color: #e0e0e0;
+    flex: 1;
+}
+
+.projects-grid .project-card .project-link {
+    margin-top: 0.5rem;
+    margin-bottom: 0.1rem;
+}
+
+.projects-grid .project-card .project-link {
+    align-self: center;
+    background: #a259f7;
+    color: #fff;
+    padding: 0.45rem 1.1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.92rem;
+    font-family: 'Fira Mono', monospace;
+    font-weight: 500;
+    transition: background 0.18s, color 0.18s;
+    box-shadow: 0 1px 4px rgba(162,89,247,0.10);
+    margin-top: 0.7rem;
+}
+.projects-grid .project-card .project-link:hover {
+    background: #fff;
+    color: black;
+}
+
 @media (max-width: 1000px) {
     .projects-grid {
         width: 100vw;
@@ -50,7 +136,7 @@ body {
 
 
 .projects-title {
-    font-size: 2.2rem;
+    font-size: 2.5rem;
     letter-spacing: 2px;
     margin-bottom: 24px;
     text-align: center;
@@ -68,18 +154,9 @@ body {
     max-width: 90vw;
 }
 
-.project-card {
-    background: #ddd;
-    border-radius: 12px;
-    height: 200px;
-    width: 300px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    transition: box-shadow 0.2s;
-}
+/* .project-card base style overridden by .projects-grid .project-card */
 
-.project-card:hover {
-    box-shadow: 0 4px 16px rgba(33,150,243,0.15);
-}
+/* .project-card:hover base style overridden by .projects-grid .project-card:hover */
 
 .projects-nav {
     width: 100vw;
